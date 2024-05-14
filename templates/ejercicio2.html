@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Ejercicio 2</h1>
+<br />
+<h2>Formulario de Nombres</h2>
+<form method="POST">
+  <div class="form-group">
+    <label for="nom1"> Nombre 1:</label>
+    <input type="text" name="nom1" required />
+  </div>
+  <div class="form-group">
+    <label for="nom2"> Nombre 2:</label>
+    <input type="text" name="nom2" required />
+  </div>
+  <div class="form-group">
+    <label for="nom3"> Nombre 3:</label>
+    <input type="text" name="nom3" required />
+  </div>
+  <br />
+  <div class="form-group">
+    <button type="submit">Enviar</button>
+  </div>
+</form>
+
+{% if cantidad %}
+<div class="resultado">
+  El nombre con mayor cantidad de caracteres es:
+  <span> {{mayor}}</span>, el cual contiene:
+  <span>{{cantidad}}</span> caracteres
+</div>
+{% endif %}
+<br />
+<a href="/">Volver al Home</a>
+{% endblock %}
