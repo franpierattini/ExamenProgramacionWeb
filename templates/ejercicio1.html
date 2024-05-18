@@ -1,38 +1,32 @@
-{% extends 'base.html' %} {% block content %}
-<h1>Ejercicio 1</h1>
-<br />
-<h2>Formulario de Notas</h2>
-<form method="POST" class="form-notas">
+{% extends 'base.html' %}
+{% block content %}
+<div class="Eje1"></div>
+<h1>Calculo de Compras</h1>
+
+<form method="post">
   <div class="form-group">
-    <label for="n1"> Notal:</label>
-    <input type="number" name="n1" min="10" max="70" required />
+    <label for="nombre"> Ingresa tu Nombre</label>
+    <input type="text" id="nombre" name="nombre" required>
   </div>
   <div class="form-group">
-    <label for="n2"> Nota2:</label>
-    <input type="number" name="n2" min="10" max="70" required />
+    <label for="edad"> Ingresa tu edad:</label>
+    <input type="number" id="edad" name="edad" required>
   </div>
   <div class="form-group">
-    <label for="n3"> Nota3:</label>
-    <input type="number" name="n3" min="10" max="70" required />
+    <label for="cantidad">Ingresa Cantidad de tarros pintura a Comprar </label>
+    <input type="number" id="cantidad" name="cantidad" required>
   </div>
   <div class="form-group">
-    <label for="asistencia"> Asistencia (%):</label>
-    <input type="number" name="asistencia" min="0" max="100" required />
-  </div>
-  <div class="form-group">
-    <button type="submit">Enviar</button>
+    <button type="submit">Calcular</button>
   </div>
 </form>
-{% if promedio %}
-<div class="resultado">
-  <p class="negrita">
-    El promedio de las 3 notas ingresadas es: <span>{{ promedio }}</span>
-  </p>
-  <p class="negrita">Estado: <span>{{ resultado }}</span></p>
-  <!-- <img src="{{ruta}}" width="100px" height="100px" /> -->
-</div>
-{% endif %}
-<br />
-<br />
+
+<h1>Resultado del cálculo</h1>
+<p><strong>Nombre:</strong> {{ nombre }}</p>
+<p><strong>Total sin descuento:</strong> ${{ total_sin_descuento }}</p>
+<p><strong>Descuento aplicado:</strong> {{ total_descuento }}%</p>
+<p><strong>Total a pagar:</strong> ${{ total }}</p>
+
+<br>
 <a href="/">Volver al Home</a>
 {% endblock %}

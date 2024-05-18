@@ -9,16 +9,22 @@ def index():
 @app.route('/ejercicio1', methods=['POST', 'GET'])
 def ejercicio1():
     if request.method == "POST":
-        n1 = float (request.form['n1'])
-        n2 = float(request.form[ 'n2' ])
-        n3 = float(request.form[ 'n3' ])
-        promedio = float(( n1 + n2 + n3) / 3)
+        nombre = (request.form['nombre'])
+        edad = int(request.form[ 'edad' ])
+        cantidad = int(request.form[ 'cantidad' ])
+        precio_unitario = 9000
+        total_sin_descuento = cantidad * precio_unitario
+        descuento = 0
+        if edad >= 18 and edad <= 30:
+            descuento = 15
+        elif edad > 30:
+            descuento = 25
         
-        asistencia = float(request.form[ 'asistencia' ])
-        aprobado = promedio >= 40 and asistencia >= 75
-        resultado =  "Aprobado" if aprobado  else "Reprobado"
-        return render_template("ejercicio1.html", promedio=promedio, resultado=resultado)
-    
+        total_descuento = total_sin_descuento * descuento / 100
+        total = total_sin_descuento - total_descuento
+        
+        return render_template("ejercicio1.html", nombre=nombre, total_sin_descuento=total_sin_descuento, total_descuento=total_descuento, total=total)
+
     return render_template("ejercicio1.html")
 
 
