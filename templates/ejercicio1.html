@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="Eje1"></div>
-<h1>Calculo de Compras</h1>
+
+<div class="Eje1">
+<h1>Cálculo de Compras</h1>
+</div>
 
 <form method="post">
   <div class="form-group">
@@ -19,14 +21,17 @@
   <div class="form-group">
     <button type="submit">Calcular</button>
   </div>
-</form>
 
-<h1>Resultado del cálculo</h1>
+<div class="resultados">
+</form>
+<div class="resultados">
+<h2>Resultado del cálculo</h2>
 <p><strong>Nombre:</strong> {{ nombre }}</p>
 <p><strong>Total sin descuento:</strong> ${{ total_sin_descuento }}</p>
 <p><strong>Descuento aplicado:</strong> {{ total_descuento }}%</p>
 <p><strong>Total a pagar:</strong> ${{ total }}</p>
 
 <br>
+</div>
 <a href="/">Volver al Home</a>
 {% endblock %}

@@ -28,15 +28,33 @@ def ejercicio1():
     return render_template("ejercicio1.html")
 
 
+
+usuarios = {
+    "juan": "admin",
+    "pepe": "user"
+}
+
+
+
 @app.route('/ejercicio2', methods=['POST', 'GET'])
 def ejercicio2():
-    if request.method == "POST":
-        nom1 = request.form[ 'nom1']
-        nom2 = request.form[ 'nom2' ]
-        nom3 = request.form[ 'nom3' ]
-        mayor = max(nom1, nom2, nom3, key=len)
-        cantidad = len(mayor)
-        return render_template("ejercicio2.html", mayor=mayor, cantidad=cantidad)
-    
-    return render_template("ejercicio2.html")
-       
+    error = None
+    mensaje = None
+    if request.method == 'POST':
+        nombre_usuario = request.form['nombre_usuario']
+        contrasena = request.form['contrasena']
+
+        # Verificar si el usuario y la contraseña son correctos
+        if nombre_usuario in usuarios and usuarios[nombre_usuario] == contrasena:
+            if nombre_usuario == 'juan':
+                mensaje = f"Bienvenido administrador {nombre_usuario}"
+            else:
+                mensaje = f"Bienvenido usuario {nombre_usuario}"
+        else:
+            error = "Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo."
+
+    return render_template("ejercicio2.html", error=error, mensaje=mensaje)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+

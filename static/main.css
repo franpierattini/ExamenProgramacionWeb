@@ -82,13 +82,7 @@ input {
   font-size: 24px;
 }
 
-.colortitulo {
-  color: #b62e7781;
-  display: flex;
-  border-radius: 8px;
-  text-decoration: underline;
-  
-}
+
 
 .nombreeje2 {
   display: flex;
@@ -99,3 +93,35 @@ input {
 .nombreeje2 input {
   background-color: #c0fbff;
 }
+
+
+.Eje1 h1 {
+  color:  rgba(219, 73, 219, 0.61);
+  text-decoration: underline;
+}
+
+.resultados {
+  margin-top: 30px; /* Espacio entre el formulario y los resultados */
+}
+
+
+.resultados h2 {
+  color:  rgba(128, 3, 128, 0.61);
+  text-decoration: underline;
+  text-decoration: underline dotted; /* Subrayado con puntos */
+  font-weight: lighter; /* Letra más delgada */
+}
+
+.resultados p {
+  color: rgb(139, 140, 142);
+  margin-bottom: 10px; /* Espacio entre cada párrafo */
+  font-weight: lighter; /* Letra más delgada */
+}
+
+.titulo h1 {
+  color:  rgb(0, 0, 0);
+  text-decoration: underline;
+
+
+}
+
